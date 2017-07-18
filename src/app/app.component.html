@@ -2,6 +2,19 @@
   <div class="page-header" style="text-align:center">
     <h1>{{title}} App</h1>
   </div>
+  <form class="form-inline" style="text-align:center">
+    <h3>Cadastrar Novo Produto</h3>
+    <div class="form-group">
+      <!-- <label for="nome">Nome</label> -->
+      <input type="text" class="form-control" id="nome" placeholder="Nome do Produto" maxlength="30" size="30">
+    </div>
+    <div class="form-group">
+      <!-- <label for="valor">Valor</label> -->
+      <input type="number" step="0.01" class="form-control" id="valor" placeholder="valor ( R$ 0.00 )" maxlength="10" size="10">
+    </div>
+    <button type="submit" class="btn btn-default">Cadastrar</button>
+  </form>
+  <hr/>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -12,22 +25,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Lamp</td>
-        <td>R$ 10,40</td>
-        <td><a href="#">Apagar <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a> / <a href="#">Editar <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Screwdriver</td>
-        <td>R$ 15,70</td>
-        <td><a href="#">Apagar <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a> / <a href="#">Editar <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Knife</td>
-        <td>R$ 20,50</td>
+      <tr *ngFor="let product of products" id="tr_item">
+        <td>{{product.id}}</td>
+        <td>{{product.nome}}</td>
+        <td>R$ {{product.valor}}</td>
         <td><a href="#">Apagar <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a> / <a href="#">Editar <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
       </tr>
     </tbody>
