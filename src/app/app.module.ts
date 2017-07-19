@@ -11,6 +11,8 @@ import { RouterModule }   from '@angular/router';
 
 import { ProductService } from './product.service';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,8 @@ import { ProductService } from './product.service';
 	    path: 'products',
 	    component: ProductComponent
 	  }
-	])
+	]),
+	FormsModule	
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
