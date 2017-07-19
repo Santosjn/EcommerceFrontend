@@ -12,15 +12,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ProductService {
 
-	constructor(private http: Http) {}
-
-	// getProducts(): Promise<Product[]> {
-	// 	return Promise.resolve(PRODUCTS);
-	// } 
+	constructor(private http: Http) {}	
 
 	getProducts(): Observable<Product[]> {
 		return this.http
                .get(`http://localhost:8080/product/list`)
                .map(response => response.json() as Product[]);
 	} 	
+
+	
 }

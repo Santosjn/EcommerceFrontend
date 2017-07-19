@@ -5,15 +5,28 @@ import { HttpModule }    from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { ProductComponent } from './product.component';
+
+import { RouterModule }   from '@angular/router';
+
+import { ProductService } from './product.service';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+	  {
+	    path: 'products',
+	    component: ProductComponent
+	  }
+	])
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

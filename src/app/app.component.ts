@@ -6,37 +6,20 @@ import { ProductService } from './product.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  template: `    
+    <div class="page-header" id="main_header">
+    	<h1>{{title}} App</h1>
+    </div>
+    <my-products><my-products>
+  `,
   styles: [`
-  	.table {
-      color: #000;      
+  	#main_header {
+      text-align: center;      
     }
-  `],
-  providers: [ProductService]  
+  `]
+  
 })
 
-export class AppComponent implements OnInit {
-  title = 'Ecommerce';
-  
-  products: Product[];
-   
-  constructor(private productService: ProductService) { }
-
-  getProducts(): void {
-  	// this.productService.getProducts().then(products => this.products = products);
-  	this.productService.getProducts()
-  	.subscribe(products => this.products = products);
-  }
-
-  ngOnInit(): void {
-  	this.getProducts();  	
-  }
+export class AppComponent {
+  title = 'Ecommerce'; 
 }
-
-
-
-
-
-
-
