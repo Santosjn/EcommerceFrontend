@@ -6,8 +6,8 @@ import { ProductService } from './product.service';
 
 @Component({
   selector: 'my-products',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css'],
   styles: [`
   	.table {
       color: #000;      
@@ -19,7 +19,7 @@ import { ProductService } from './product.service';
 })
 
 export class ProductComponent implements OnInit {  
-  products: Product[];
+  products: Product[];  
   errorMessage: string; 
   newProduct: any = {}; 
   editedProduct: any = {};
@@ -58,6 +58,7 @@ export class ProductComponent implements OnInit {
     this.productService.updateProduct(product).subscribe(
       error => this.errorMessage = <any>error);    
     this.editedProduct = {};
+    this.showAddProductForm();
   }
 
   deleteProduct(product): void {      

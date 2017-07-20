@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 
 import { ProductComponent } from './product.component';
 
+import { ShoppingCartComponent } from './shoppingcart.component';
+
+import { CatalogComponent } from './catalog.component';
+
 import { RouterModule }   from '@angular/router';
 
 import { ProductService } from './product.service';
@@ -16,7 +20,9 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent
+    ProductComponent,
+    ShoppingCartComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +31,14 @@ import { FormsModule } from '@angular/forms';
 	  {
 	    path: 'products',
 	    component: ProductComponent
+	  },
+	  {
+	    path: 'shoppingcart',
+	    component: ShoppingCartComponent
+	  },
+	  {
+	    path: 'catalog',
+	    component: CatalogComponent
 	  }
 	]),
 	FormsModule	
