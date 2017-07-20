@@ -1,3 +1,27 @@
-
-
-<h1>Catalog Component here !</h1>
+<div class="container">
+  <ul class="list-group" style="text-align: center; list-style-type: none;">
+    <li *ngFor="let item of Items">
+      <div class="row">
+        <div class="media" class="col-sm-4">
+          <div class="media-left">
+            <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" class="media-object" style="width:60px">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{item.nome}}</h4>
+            <p>Descrição do Produto</p>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          Preço: {{item.valor}}
+        </div>
+		<div class="col-sm-2">
+			<input type="number" class="form-control" id="qtd" value="1" min="0" [(ngModel)]="item.quantidade">
+			<label>Quantidade: {{item.quantidade}}</label>
+		</div>
+        <div class="col-sm-4">
+          <button class="btn btn-default btn-yellow" (click)="saveItemToShoppingCart(item)">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

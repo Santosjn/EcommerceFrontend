@@ -1,0 +1,9 @@
+.btn-yellow {
+  background: rgb(250, 255, 140);
+  color: #574500;
+  border: solid;
+  border-width: 1px;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}

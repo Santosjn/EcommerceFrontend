@@ -15,6 +15,8 @@ import { RouterModule }   from '@angular/router';
 
 import { ProductService } from './product.service';
 
+import { ShoppingCartService } from './shoppingcart.service';
+
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -43,7 +45,7 @@ import { FormsModule } from '@angular/forms';
 	]),
 	FormsModule	
   ],
-  providers: [ProductService],
+  providers: [ProductService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
