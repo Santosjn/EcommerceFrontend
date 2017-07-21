@@ -28,7 +28,7 @@
             <td class="col-sm-1 col-md-1 text-center"><strong>R$ {{item.valor}}</strong></td>
             <td class="col-sm-1 col-md-1 text-center"><strong>R$ {{item.valor * item.quantidade}}</strong></td>
             <td class="col-sm-1 col-md-1">
-              <button class="btn btn-primary btn-sm"> Remover <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              <button class="btn btn-primary btn-sm" (click)="removeShoppingCartItems(item.shopping_cart_id)"> Remover <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
               </button>
             </td>
           </tr>

@@ -17,6 +17,8 @@ import { ProductService } from './product.service';
 
 import { ShoppingCartService } from './shoppingcart.service';
 
+import { CatalogService } from './catalog.service';
+
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -45,7 +47,7 @@ import { FormsModule } from '@angular/forms';
 	]),
 	FormsModule	
   ],
-  providers: [ProductService, ShoppingCartService],
+  providers: [ProductService, ShoppingCartService, CatalogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

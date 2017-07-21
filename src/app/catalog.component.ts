@@ -4,6 +4,8 @@ import { Product } from './product';
 
 import { ProductService } from './product.service';
 
+import { CatalogService } from './catalog.service';
+
 @Component({
   selector: 'my-catalog',
   templateUrl: './catalog.component.html',
@@ -16,10 +18,10 @@ export class CatalogComponent implements OnInit  {
 	errorMessage: string; 	
 	quantidade: number;
 
-	constructor(private productService: ProductService) { }
+	constructor(private catalogService: CatalogService) { }
 	
 	getAvailableItems(): void {  	
-	  	this.productService.getProducts()
+	  	this.catalogService.getAvailableItems()
 	  	.subscribe(
 	  		items => this.Items = items,
 	  		error => this.errorMessage = <any>error
@@ -27,7 +29,7 @@ export class CatalogComponent implements OnInit  {
     }
 
     saveItemToShoppingCart(item): void {    	
-    	this.productService.saveItemToShoppingCart(item).subscribe(
+    	this.catalogService.saveItemToShoppingCart(item).subscribe(
         error => this.errorMessage = <any>error);        
     }
 

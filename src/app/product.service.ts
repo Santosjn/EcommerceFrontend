@@ -45,19 +45,8 @@ export class ProductService {
 		let options = new RequestOptions({ headers: headers });
 
 		return this.http		
-		.put(`http://localhost:8080/product/delete/${product.id}`, options)
+		.delete(`http://localhost:8080/product/delete?id=${product.id}`, options)
         .map(response => response.json());
-	}  	
-
-	saveItemToShoppingCart(item: any): Observable<Product> {	
-		let body = JSON.stringify(item);
-		let headers = new Headers({ 'Content-Type': 'application/json' });
-		let options = new RequestOptions({ headers: headers });
-
-		return this.http
-		.post(`http://localhost:8080/shoppingcart/new`, body, options)
-        .map(response => response.json());
-	}
-
+	} 
 
 }

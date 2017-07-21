@@ -17,4 +17,13 @@ export class ShoppingCartService {
         .map(response => response.json() as ShoppingCart[]);
 	}
 
+	deleteShoppingCartItems(shopping_cart_id: number): Observable<ShoppingCart> {			
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers });
+
+		return this.http		
+		.delete(`http://localhost:8080/shoppingcart/delete?id=${shopping_cart_id}`, options)
+        .map(response => response.json());
+	} 
+
 }
