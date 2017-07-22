@@ -1,27 +1,23 @@
 <div class="container">
-  <ul class="list-group" style="text-align: center; list-style-type: none;">
-    <li *ngFor="let item of Items">
-      <div class="row">
-        <div class="media" class="col-sm-4">
-          <div class="media-left">
-            <img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" class="media-object" style="width:60px">
-          </div>
+  <div class="row">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-xs-4" *ngFor="let item of Items">
+        <div class="media">
+          <a class="pull-left">
+			      <img class = "media-object" src = "http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" alt = "Media Object">
+			   </a>
           <div class="media-body">
-            <h4 class="media-heading">{{item.nome}}</h4>
+            <h4 class="media-heading"><h4>{{item.nome}}</h4></h4>
             <p>Descrição do Produto</p>
+            <p><strong>Preço: {{item.valor}}</strong></p>
+            <div class="input-group">
+              <label>Quantidade:</label>
+              <input type="number" class="form-control pull-right" id="qtd" value="1" min="0" [(ngModel)]="item.quantidade" style="width: 80px;">
+            </div>
+            <button class="btn btn-default" (click)="saveItemToShoppingCart(item)">Adicionar ao Carrinho</button>
           </div>
-        </div>
-        <div class="col-sm-2">
-          Preço: {{item.valor}}
-        </div>
-		<div class="col-sm-2">
-			<input type="number" class="form-control" id="qtd" value="1" min="0" [(ngModel)]="item.quantidade">
-			<label>Quantidade: {{item.quantidade}}</label>
-		</div>
-        <div class="col-sm-4">
-          <button class="btn btn-default btn-yellow" (click)="saveItemToShoppingCart(item)">Adicionar ao Carrinho</button>
         </div>
       </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
