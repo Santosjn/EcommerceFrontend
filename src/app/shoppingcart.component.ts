@@ -25,9 +25,20 @@ export class ShoppingCartComponent implements OnInit {
 	}
 
 	removeShoppingCartItems(shopping_cart_id): void{		
-		this.shoppingCartService.deleteShoppingCartItems(shopping_cart_id).subscribe(
-        error => this.errorMessage = <any>error);    
+		this.shoppingCartService.deleteShoppingCartItems(shopping_cart_id)
+		.subscribe(
+			null,
+            error => console.log("Error => ", error),
+            () => this.getShoppingCartItems() 
+        );          
 	}
+
+	//  ***** this helps !
+	// .subscribe(
+	// 		null,
+    //      error => console.log("Error => ", error),
+    //      () => this.getShoppingCartItems() 
+    //  );
 
     ngOnInit(): void {
     	this.getShoppingCartItems();     	   	

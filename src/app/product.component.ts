@@ -50,8 +50,10 @@ export class ProductComponent implements OnInit {
 
   saveProduct(product): void {      
     this.productService.saveProduct(product).subscribe(
-      error => this.errorMessage = <any>error);    
-    this.newProduct = {};    
+      null,
+      error => this.errorMessage = <any>error,
+      () =>  this.getProducts());    
+    this.newProduct = {};      
   }
 
   updateProduct(product): void {      
@@ -63,7 +65,10 @@ export class ProductComponent implements OnInit {
 
   deleteProduct(product): void {      
     this.productService.deleteProduct(product).subscribe(
-      error => this.errorMessage = <any>error);    
+      null,
+      error => this.errorMessage = <any>error,
+      () =>  this.getProducts()
+    );      
   }
 
   ngOnInit(): void {
