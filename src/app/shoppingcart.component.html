@@ -1,5 +1,8 @@
 <div class="container">
-  <div class="row">
+  <div *ngIf="shoppingCartItems.length == 0" class="alert alert-warning">
+    <p><strong>Nenhum item no carrinho.</strong></p>
+  </div>
+  <div class="row" *ngIf="shoppingCartItems.length > 0">
     <div class="col-sm-12 col-md-10 col-md-offset-1">
       <table class="table table-striped">
         <thead>
@@ -43,7 +46,7 @@
             <td>
               <h5>Subtotal</h5></td>
             <td class="text-right">
-              <h5><strong>R$ 24.59</strong></h5></td>
+              <h5><strong>R$ {{subTotal}}</strong></h5></td>
           </tr>
           <tr>
             <td></td>
@@ -52,7 +55,7 @@
             <td>
               <h5>Frete</h5></td>
             <td class="text-right">
-              <h5><strong>R$ 12.50</strong></h5></td>
+              <h5><strong>R$ {{valor_frete}}</strong></h5></td>
           </tr>
           <tr>
             <td></td>
@@ -61,7 +64,7 @@
             <td>
               <h3>Total</h3></td>
             <td class="text-right">
-              <h3><strong>R$ 31.53</strong></h3></td>
+              <h3><strong>R$ {{total}}</strong></h3></td>
           </tr>
           <tr>
             <td></td>

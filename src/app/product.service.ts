@@ -29,8 +29,7 @@ export class ProductService {
         .map(response => response.json());
 	}
 
-	updateProduct(product: Product): Observable<Product> {	
-		console.log("--to update =>", product)
+	updateProduct(product: Product): Observable<Product> {			
 		let body = JSON.stringify(product);
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });

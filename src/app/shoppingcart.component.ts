@@ -11,8 +11,11 @@ import { ShoppingCartService } from './shoppingcart.service';
 })
 
 export class ShoppingCartComponent implements OnInit {  	
-	shoppingCartItems: ShoppingCart[];
+	shoppingCartItems: ShoppingCart[] = [];
 	errorMessage: string;
+	valor_frete: number = 11.50;
+	subTotal: number = 0;
+	total: number = 0;
 
 	constructor(private shoppingCartService: ShoppingCartService) { }
 
@@ -20,7 +23,8 @@ export class ShoppingCartComponent implements OnInit {
 	  	this.shoppingCartService.getShoppingCartItems()
 	  	.subscribe(
 	  		items => this.shoppingCartItems = items,
-	  		error => this.errorMessage = <any>error
+	  		error => this.errorMessage = <any>error,
+	  		() => this.shoppingCartCalculations()
 	  	);
 	}
 
@@ -28,7 +32,7 @@ export class ShoppingCartComponent implements OnInit {
 		this.shoppingCartService.deleteShoppingCartItems(shopping_cart_id)
 		.subscribe(
 			null,
-            error => console.log("Error => ", error),
+            error => this.errorMessage = <any>error,
             () => this.getShoppingCartItems() 
         );          
 	}
@@ -39,6 +43,14 @@ export class ShoppingCartComponent implements OnInit {
     //      error => console.log("Error => ", error),
     //      () => this.getShoppingCartItems() 
     //  );
+
+    shoppingCartCalculations(): void{
+    	this.subTotal = this.total = 0;
+    	for (var i = this.shoppingCartItems.length - 1; i >= 0; i--) {    		
+    		this.subTotal += this.shoppingCartItems[i].quantidade * this.shoppingCartItems[i].valor;
+    	}
+    	this.total = this.subTotal + this.valor_frete;    	
+    }
 
     ngOnInit(): void {
     	this.getShoppingCartItems();     	   	
